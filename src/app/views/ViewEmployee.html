@@ -1,0 +1,52 @@
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12 mx-auto">
+            <div class="card rounded-0 border-0 shadow">
+                <div class="card-body p-5">
+                    <h4 class="card-title">Employee Details</h4>
+                    <p class="card-description">
+                        Basic details of employee
+                    </p>
+
+                    <div class="input-group">
+                        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                        <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <!--  Bootstrap table-->
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th nowrap scope="col">Employee ID</th>
+                                    <th scope="col">Email ID</th>
+                                    <th nowrap scope="col">Gender</th>
+                                    <th nowrap scope="col">Job Role</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (emp of employees; track emp) {                                   
+                                    <tr>
+                                        <th scope="row">{{ employees.indexOf(emp) }}</th>
+                                        <td>{{ emp.employeeEmail }}</td>
+                                        <td>{{ emp.employeeGender }}</td>
+                                        <td>{{ emp.employeeJobRole }}</td>
+                                        <td class="emp-desc">{{ emp.employeeDescription }}</td>
+                                        <td><a routerLink="/update/{{emp.employeeEmail}}"><i class="fa-sharp fa-solid fa-user-pen"></i></a></td>
+                                    </tr>
+                                } @empty {
+                                There are no Employees.
+                                }                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
